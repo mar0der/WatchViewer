@@ -14,11 +14,21 @@
                         <label alignment="left" text="Label" id="Jkc-GK-8nV"/>
                         <label alignment="left" text="Label" id="GFM-dc-l8Z"/>
                         <label alignment="left" text="Label" id="J1J-AI-eZC"/>
+                        <button width="1" alignment="left" title="Start" id="GYh-Rm-mos">
+                            <connections>
+                                <action selector="start" destination="LdF-Gk-cnZ" id="sbj-PR-n1Q"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Stop" id="0uH-Oh-85h">
+                            <connections>
+                                <action selector="stop" destination="LdF-Gk-cnZ" id="JRu-SK-r9N"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
-                        <outlet property="backHandCountLabel" destination="GFM-dc-l8Z" id="L2M-1b-8Du"/>
-                        <outlet property="forehandCountLabel" destination="J1J-AI-eZC" id="Q1z-3I-KCd"/>
-                        <outlet property="titleLabel" destination="Jkc-GK-8nV" id="is0-aQ-RQF"/>
+                        <outlet property="backhandCountLabel" destination="GFM-dc-l8Z" id="aNL-iy-jgK"/>
+                        <outlet property="forehandCountLabel" destination="J1J-AI-eZC" id="v01-oE-iYl"/>
+                        <outlet property="titleLabel" destination="Jkc-GK-8nV" id="OUZ-Od-hYB"/>
                     </connections>
                 </controller>
             </objects>
