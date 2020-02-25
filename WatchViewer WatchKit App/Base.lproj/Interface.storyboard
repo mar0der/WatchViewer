@@ -1,16 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3mp-fW-waa">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="LdF-Gk-cnZ">
+    <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="15501"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
+        <!--Main Interface Controller-->
+        <scene sceneID="Rgv-jF-7df">
             <objects>
-                <hostingController id="3mp-fW-waa" customClass="HostingController"
-                customModuleProvider="target"/>
+                <controller id="LdF-Gk-cnZ" customClass="MainInterfaceController" customModule="WatchViewer_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Label" id="Jkc-GK-8nV"/>
+                        <label alignment="left" text="Label" id="GFM-dc-l8Z"/>
+                        <label alignment="left" text="Label" id="J1J-AI-eZC"/>
+                    </items>
+                    <connections>
+                        <outlet property="backHandCountLabel" destination="GFM-dc-l8Z" id="L2M-1b-8Du"/>
+                        <outlet property="forehandCountLabel" destination="J1J-AI-eZC" id="Q1z-3I-KCd"/>
+                        <outlet property="titleLabel" destination="Jkc-GK-8nV" id="is0-aQ-RQF"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="160" y="57"/>
         </scene>
     </scenes>
 </document>

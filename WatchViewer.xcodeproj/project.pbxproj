@@ -17,11 +17,12 @@
 		CA2783722404D62600E69597 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA2783702404D62600E69597 /* Interface.storyboard */; };
 		CA2783742404D62800E69597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA2783732404D62800E69597 /* Assets.xcassets */; };
 		CA27837B2404D62800E69597 /* WatchViewer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CA27837A2404D62800E69597 /* WatchViewer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CA2783802404D62800E69597 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA27837F2404D62800E69597 /* ContentView.swift */; };
-		CA2783822404D62800E69597 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2783812404D62800E69597 /* HostingController.swift */; };
-		CA2783842404D62800E69597 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2783832404D62800E69597 /* ExtensionDelegate.swift */; };
 		CA2783862404D62900E69597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA2783852404D62900E69597 /* Assets.xcassets */; };
 		CA2783892404D62900E69597 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA2783882404D62900E69597 /* Preview Assets.xcassets */; };
+		CA27839A2404D7F200E69597 /* RunningBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2783982404D7EC00E69597 /* RunningBuffer.swift */; };
+		CA27839C2404D84800E69597 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA27839B2404D84800E69597 /* MotionManager.swift */; };
+		CA27839E2404D87200E69597 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA27839D2404D87200E69597 /* WorkoutManager.swift */; };
+		CA2783A02404D8C900E69597 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA27839F2404D8C900E69597 /* MainInterfaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,12 +81,13 @@
 		CA2783732404D62800E69597 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA2783752404D62800E69597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA27837A2404D62800E69597 /* WatchViewer WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchViewer WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA27837F2404D62800E69597 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		CA2783812404D62800E69597 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
-		CA2783832404D62800E69597 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		CA2783852404D62900E69597 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA2783882404D62900E69597 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CA27838A2404D62900E69597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA2783982404D7EC00E69597 /* RunningBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningBuffer.swift; sourceTree = "<group>"; };
+		CA27839B2404D84800E69597 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		CA27839D2404D87200E69597 /* WorkoutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutManager.swift; sourceTree = "<group>"; };
+		CA27839F2404D8C900E69597 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,9 +163,10 @@
 		CA27837E2404D62800E69597 /* WatchViewer WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				CA27837F2404D62800E69597 /* ContentView.swift */,
-				CA2783812404D62800E69597 /* HostingController.swift */,
-				CA2783832404D62800E69597 /* ExtensionDelegate.swift */,
+				CA27839F2404D8C900E69597 /* MainInterfaceController.swift */,
+				CA2783982404D7EC00E69597 /* RunningBuffer.swift */,
+				CA27839B2404D84800E69597 /* MotionManager.swift */,
+				CA27839D2404D87200E69597 /* WorkoutManager.swift */,
 				CA2783852404D62900E69597 /* Assets.xcassets */,
 				CA27838A2404D62900E69597 /* Info.plist */,
 				CA2783872404D62900E69597 /* Preview Content */,
@@ -322,9 +325,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA2783822404D62800E69597 /* HostingController.swift in Sources */,
-				CA2783802404D62800E69597 /* ContentView.swift in Sources */,
-				CA2783842404D62800E69597 /* ExtensionDelegate.swift in Sources */,
+				CA27839A2404D7F200E69597 /* RunningBuffer.swift in Sources */,
+				CA27839E2404D87200E69597 /* WorkoutManager.swift in Sources */,
+				CA2783A02404D8C900E69597 /* MainInterfaceController.swift in Sources */,
+				CA27839C2404D84800E69597 /* MotionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
