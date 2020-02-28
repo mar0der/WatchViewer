@@ -21,7 +21,6 @@ protocol WorkoutManagerDelegate: class {
 class WorkoutManager: MotionManagerDelegate {
     // MARK: Properties
     let motionManager = MotionManager()
-    let healthStore = HKHealthStore()
 
     weak var delegate: WorkoutManagerDelegate?
     var session: HKWorkoutSession?
@@ -39,20 +38,23 @@ class WorkoutManager: MotionManagerDelegate {
         if (session != nil) {
             return
         }
-
+        
+        let healthStore = HKHealthStore()
+        
         // Configure the workout session.
         let workoutConfiguration = HKWorkoutConfiguration()
         workoutConfiguration.activityType = .tennis
         workoutConfiguration.locationType = .outdoor
-
+        
         do {
-            session = try HKWorkoutSession(configuration: workoutConfiguration)
+            session = try HKWorkoutSession(healthStore: healthStore, configuration: workoutConfiguration)
         } catch {
             fatalError("Unable to create the workout session!")
         }
 
         // Start the workout session and device motion updates.
-        healthStore.start(session!)
+        session?.startActivity(with: Date.init())
+        
         motionManager.startUpdates()
     }
 
@@ -64,7 +66,7 @@ class WorkoutManager: MotionManagerDelegate {
 
         // Stop the device motion updates and workout session.
         motionManager.stopUpdates()
-        healthStore.end(session!)
+        session?.end()
 
         // Clear the workout session.
         session = nil
