@@ -23,6 +23,7 @@ protocol WorkoutManagerDelegate: class {
 class WorkoutManager: MotionManagerDelegate {
     // MARK: Properties
     let motionManager = MotionManager()
+    let healthStore = HKHealthStore()
 
     weak var delegate: WorkoutManagerDelegate?
     var session: HKWorkoutSession?
@@ -49,13 +50,21 @@ class WorkoutManager: MotionManagerDelegate {
         workoutConfiguration.locationType = .outdoor
         
         do {
-            session = try HKWorkoutSession(healthStore: healthStore, configuration: workoutConfiguration)
+            if #available(watchOSApplicationExtension 5.0, *) {
+                session = try HKWorkoutSession(healthStore: healthStore, configuration: workoutConfiguration)
+            } else {
+                session = try HKWorkoutSession(configuration: workoutConfiguration)
+            }
         } catch {
             fatalError("Unable to create the workout session!")
         }
 
         // Start the workout session and device motion updates.
-        session?.startActivity(with: Date.init())
+        if #available(watchOSApplicationExtension 5.0, *) {
+            session?.startActivity(with: Date.init())
+        } else {
+            healthStore.start(session!)
+        }
         
         motionManager.startUpdates()
     }
@@ -68,7 +77,11 @@ class WorkoutManager: MotionManagerDelegate {
 
         // Stop the device motion updates and workout session.
         motionManager.stopUpdates()
-        session?.end()
+        if #available(watchOSApplicationExtension 5.0, *) {
+            session?.end()
+        } else {
+            healthStore.end(session!)
+        }
 
         // Clear the workout session.
         session = nil
