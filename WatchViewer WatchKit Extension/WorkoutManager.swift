@@ -8,6 +8,7 @@
 
 import Foundation
 import HealthKit
+import CoreMotion
 
 /**
  `WorkoutManagerDelegate` exists to inform delegates of swing data changes.
@@ -16,6 +17,7 @@ import HealthKit
 protocol WorkoutManagerDelegate: class {
     func didUpdateForehandSwingCount(_ manager: WorkoutManager, forehandCount: Int)
     func didUpdateBackhandSwingCount(_ manager: WorkoutManager, backhandCount: Int)
+    func didUpdateAtitude(_ manager: WorkoutManager, atitude: CMAttitude)
 }
 
 class WorkoutManager: MotionManagerDelegate {
@@ -73,6 +75,9 @@ class WorkoutManager: MotionManagerDelegate {
     }
 
     // MARK: MotionManagerDelegate
+    func didUpdateAtitude(_ manager: MotionManager, atitude: CMAttitude) {
+        delegate?.didUpdateAtitude(self, atitude: atitude)
+    }
     
     func didUpdateForehandSwingCount(_ manager: MotionManager, forehandCount: Int) {
         delegate?.didUpdateForehandSwingCount(self, forehandCount: forehandCount)

@@ -14,6 +14,9 @@
                         <label alignment="left" text="Label" id="Jkc-GK-8nV"/>
                         <label alignment="left" text="Label" id="GFM-dc-l8Z"/>
                         <label alignment="left" text="Label" id="J1J-AI-eZC"/>
+                        <label alignment="left" text="Label" id="zAt-b8-Cce" userLabel="RollAngle"/>
+                        <label alignment="left" text="Label" id="5Vy-je-Zdn" userLabel="PitchAngle"/>
+                        <label alignment="left" text="Label" id="6lS-lw-IGH" userLabel="YawAngle"/>
                         <button width="1" alignment="left" title="Start" id="GYh-Rm-mos">
                             <connections>
                                 <action selector="start" destination="LdF-Gk-cnZ" id="sbj-PR-n1Q"/>
@@ -26,6 +29,9 @@
                         </button>
                     </items>
                     <connections>
+                        <outlet property="atitudePitchLabel" destination="5Vy-je-Zdn" id="Ku4-rR-kFO"/>
+                        <outlet property="atitudeRollLabel" destination="zAt-b8-Cce" id="VOm-oO-hDc"/>
+                        <outlet property="atitudeYawLabel" destination="6lS-lw-IGH" id="3Ap-Qn-fsE"/>
                         <outlet property="backhandCountLabel" destination="GFM-dc-l8Z" id="aNL-iy-jgK"/>
                         <outlet property="forehandCountLabel" destination="J1J-AI-eZC" id="v01-oE-iYl"/>
                         <outlet property="titleLabel" destination="Jkc-GK-8nV" id="OUZ-Od-hYB"/>

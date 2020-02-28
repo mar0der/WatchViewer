@@ -13,6 +13,7 @@ import CoreMotion
 protocol MotionManagerDelegate: class {
     func didUpdateForehandSwingCount(_ manager: MotionManager, forehandCount: Int)
     func didUpdateBackhandSwingCount(_ manager: MotionManager, backhandCount: Int)
+    func didUpdateAtitude(_ manager: MotionManager, atitude: CMAttitude)
 }
 
 class MotionManager{
@@ -38,6 +39,7 @@ class MotionManager{
     // Swings count
     var forehandCount = 0
     var backhandCount = 0
+    var atitude = CMAttitude()
     
     var recentDetection = false
     
@@ -77,6 +79,9 @@ class MotionManager{
     // MARK: Motion Processing
     
     func processDeviceMotion(_ deviceMotion: CMDeviceMotion) {
+        //my stuff
+        self.atitude = deviceMotion.attitude
+        
         let gravity = deviceMotion.gravity
         let rotationRate = deviceMotion.rotationRate
         
@@ -146,6 +151,10 @@ class MotionManager{
             print("Backhand swing. Count: \(backhandCount)")
             updateBackhandSwingDelegate()
         }
+    }
+    
+    func updateAtitudeSwingDelegate(){
+        delegate?.didUpdateAtitude(self, atitude: atitude)
     }
 
     func updateForehandSwingDelegate() {

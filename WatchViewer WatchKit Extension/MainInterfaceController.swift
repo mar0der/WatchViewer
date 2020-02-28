@@ -9,6 +9,7 @@
 import WatchKit
 import Foundation
 import Dispatch
+import CoreMotion
 
 class MainInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     // MARK: Properties
@@ -17,13 +18,19 @@ class MainInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
     var active = false
     var forehandCount = 0
     var backhandCount = 0
+    var atitudeRoll = 0.0
+    var atitudePitch = 0.0
+    var atitudeYaw = 0.0
 
     // MARK: Interface Properties
     
     @IBOutlet weak var titleLabel: WKInterfaceLabel!
     @IBOutlet weak var backhandCountLabel: WKInterfaceLabel!
     @IBOutlet weak var forehandCountLabel: WKInterfaceLabel!
-
+    @IBOutlet weak var atitudeRollLabel: WKInterfaceLabel!
+    @IBOutlet weak var atitudePitchLabel: WKInterfaceLabel!
+    @IBOutlet weak var atitudeYawLabel: WKInterfaceLabel!
+    
 
     // MARK: Initialization
     
@@ -77,6 +84,15 @@ class MainInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
             self.updateLabels()
         }
     }
+    
+    func didUpdateAtitude(_ manager: WorkoutManager, atitude: CMAttitude) {
+        DispatchQueue.main.async {
+            self.atitudeRoll = atitude.roll
+            self.atitudePitch = atitude.pitch
+            self.atitudeYaw = atitude.yaw
+            self.updateLabels()
+         }
+    }
 
     // MARK: Convenience
     
@@ -84,6 +100,9 @@ class MainInterfaceController: WKInterfaceController, WorkoutManagerDelegate {
         if active {
             forehandCountLabel.setText("\(forehandCount)")
             backhandCountLabel.setText("\(backhandCount)")
+            atitudeRollLabel.setText("\(atitudeRoll)")
+            atitudePitchLabel.setText("\(atitudePitch)")
+            atitudeYawLabel.setText("\(atitudeYaw)")
         }
     }
 
